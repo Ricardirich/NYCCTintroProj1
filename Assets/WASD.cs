@@ -18,7 +18,7 @@ public class WASD : MonoBehaviour
     {
         dir = Direction();
         //Debug.Log("desired dir based off player input: " + dir);
-        transform.Translate(dir*speed);
+        transform.Translate(dir*speed*Time.deltaTime);
         
     }
 //--------------------------------- THIS METHOD DOES INPUT CHECKS FOR WASD -----------------------------------------
