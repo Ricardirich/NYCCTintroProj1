@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class JumpWASD : MonoBehaviour
 {
+
+    public float speed = 1;
+    Vector3 dir;
     bool jump = false;
     bool canJump = true;
-    Vector3 jumpForce;
+    public float jumpForce;
     Rigidbody2D myRB;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,7 @@ public class JumpWASD : MonoBehaviour
         //Debug.Log("desired dir based off player input: " + dir);
         transform.Translate(dir*speed*Time.deltaTime);
 
-        if(Input.GetKey(KeyCode.space))
+        if(Input.GetKey(KeyCode.Space))
         {
             jump = true;
         }
@@ -39,12 +42,12 @@ public class JumpWASD : MonoBehaviour
         }
     }
 
-    void OnCollisionStay2D(collision2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
         canJump = true;
     }
 
-    void OnCollisionExit2D(collision2D other)
+    void OnCollisionExit2D(Collision2D other)
     {
         canJump = false;
     }
