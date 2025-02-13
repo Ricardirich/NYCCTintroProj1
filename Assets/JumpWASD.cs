@@ -7,9 +7,9 @@ public class JumpWASD : MonoBehaviour
 
     public float speed = 1;
     Vector3 dir;
-    bool jump = false;
     bool canJump = true;
-    public float jumpForce;
+    bool isJumping = false;
+    public float force;
     Rigidbody2D myRB;
     // Start is called before the first frame update
     void Start()
@@ -26,19 +26,19 @@ public class JumpWASD : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Space))
         {
-            jump = true;
+            isJumping = true;
         }
         else
         {
-            jump = false;
+            isJumping = false;
         }
     }
 
     void FixedUpdate()
     {
-        if(jump && canJump)
+        if(isJumping && canJump)
         {
-            myRB.AddForce(Vector3.up * jumpForce);
+            myRB.AddForce(Vector3.up * force);
         }
     }
 
